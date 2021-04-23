@@ -43,8 +43,6 @@ a30 %>%
 # teste de normalidade MT - a30 
 shapiro.test(a30$NOTA_MT) # proximo de 1 -> normal
 
-# teste de homocedasticidade
-
 # TESTE
 # Ho a proficiencia em matemática é maior em escola urbanas
 urbanas30 <- a30 %>% 
@@ -89,9 +87,6 @@ a100 %>%
 
 # teste de normalidade MT - a100 
 shapiro.test(a100$NOTA_MT) # proximo de 1 - normal
-
-# teste de homocedasticidade
-
 
 # TESTE
 # Ho a proficiencia em matemática é maior em escola urbanas
@@ -139,9 +134,6 @@ a30 %>%
 # teste de normalidade LP - a30 
 shapiro.test(a30$NOTA_LP) # proximo de 1 - normal
 
-# teste de homocedasticidade
-
-
 # TESTE
 # existe diferena entre proficiencia em lp segundo categoria adm 
 municipal30 <- a30 %>%
@@ -187,8 +179,6 @@ a100 %>%
 
 # teste de normalidade LP - a100 
 shapiro.test(a100$NOTA_LP) # proximo de 1 - normal
-
-# teste de homocedasticidade
 
 # TESTE
 # existe diferena entre proficiencia em lp segundo categoria adm 
