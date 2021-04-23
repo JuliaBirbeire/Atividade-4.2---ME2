@@ -11,14 +11,14 @@ amostra_190090090$DEPENDENCIA_ADM[amostra_190090090$DEPENDENCIA_ADM == '1'] <-  
 a30 = rep_sample_n(amostra_190090090 ,size = 30, reps = 1, replace = TRUE)
 a100 = rep_sample_n(amostra_190090090 ,size = 100, reps = 1, replace = TRUE)
 
-# NOTA MT E LOCALIZA«√O
+# NOTA MT E LOCALIZA√á√ÉO
 # amostra de n = 30
 # grafico 
 a30 %>%
   ggplot(aes(x = factor(""), y = NOTA_MT)) +
   geom_boxplot(fill = c('#008080'), width = 0.5) +
   stat_summary(fun.y = 'mean', geom = 'point', shape = 23, size = 3,  fill = 'white') + 
-  labs(x = '', y ='Nota Matem·tica') + 
+  labs(x = '', y ='Nota Matem√°tica') + 
   theme_bw() +
   theme(axis.title.y = element_text(colour = 'black', size = 12),
         axis.title.x = element_text(colour = 'black', size = 12),
@@ -29,12 +29,12 @@ a30 %>%
 
 ggsave("mat30.png", width = 160, height = 80, units = "mm")
 
-# medidas de posiÁ„o e variabilidade segundo as categorias da localizaÁ„o
+# medidas de posi√ß√£o e variabilidade segundo as categorias da localiza√ß√£o
 a30 %>%
   group_by(LOCALIZACAO)%>%
   summarize(media = mean(NOTA_MT),
-            vari‚ncia = var(NOTA_MT),
-            desvio_padr„o = sd(NOTA_MT),
+            vari√¢ncia = var(NOTA_MT),
+            desvio_padr√£o = sd(NOTA_MT),
             min = min(NOTA_MT),
             q25 = quantile(NOTA_MT, probs = .25),
             mediana  = quantile(NOTA_MT, probs = .5),
@@ -46,7 +46,7 @@ shapiro.test(a30$NOTA_MT) # proximo de 1 -> normal
 # teste de homocedasticidade
 
 # TESTE
-# Ho a proficiencia em matem·tica È maior em escola urbanas
+# Ho a proficiencia em matem√°tica √© maior em escola urbanas
 urbanas30 <- a30 %>% 
   filter(LOCALIZACAO == "Urbana")
 
@@ -56,7 +56,7 @@ rural30 <- a30 %>%
 var.test(urbanas30$NOTA_MT,rural30$NOTA_MT) # variancias iguais
 
 # t student 
-t.test(urbanas30$NOTA_MT,rural30$NOTA_MT,alternative = 'less') # aceita Ho
+t.test(urbanas30$NOTA_MT,rural30$NOTA_MT,alternative = 'greater') # aceita Ho
 
 # amostra de n = 100
 # grafico 
@@ -64,7 +64,7 @@ a100 %>%
   ggplot(aes(x = factor(""), y = NOTA_MT)) +
   geom_boxplot(fill = c('#008080'), width = 0.5) +
   stat_summary(fun.y = 'mean', geom = 'point', shape = 23, size = 3,  fill = 'white') + 
-  labs(x = '', y ='Nota Matem·tica') + 
+  labs(x = '', y ='Nota Matem√°tica') + 
   theme_bw() +
   theme(axis.title.y = element_text(colour = 'black', size = 12),
         axis.title.x = element_text(colour = 'black', size = 12),
@@ -75,12 +75,12 @@ a100 %>%
 
 ggsave("mat100.png", width = 160, height = 80, units = "mm")
 
-# medidas de posiÁ„o e variabilidade segundo as categorias da localizaÁ„o
+# medidas de posi√ß√£o e variabilidade segundo as categorias da localiza√ß√£o
 a100 %>%
   group_by(LOCALIZACAO)%>%
   summarize(media = mean(NOTA_MT),
-            vari‚ncia = var(NOTA_MT),
-            desvio_padr„o = sd(NOTA_MT),
+            vari√¢ncia = var(NOTA_MT),
+            desvio_padr√£o = sd(NOTA_MT),
             min = min(NOTA_MT),
             q25 = quantile(NOTA_MT, probs = .25),
             mediana  = quantile(NOTA_MT, probs = .5),
@@ -94,7 +94,7 @@ shapiro.test(a100$NOTA_MT) # proximo de 1 - normal
 
 
 # TESTE
-# Ho a proficiencia em matem·tica È maior em escola urbanas
+# Ho a proficiencia em matem√°tica √© maior em escola urbanas
 urbanas100 <- a100 %>% 
   filter(LOCALIZACAO == "Urbana")
 
@@ -104,7 +104,7 @@ rural100 <- a100 %>%
 var.test(urbanas100$NOTA_MT,rural100$NOTA_MT) # variancias iguais
 
 # t student 
-t.test(urbanas100$NOTA_MT,rural100$NOTA_MT, alternative = 'less') # aceita Ho
+t.test(urbanas100$NOTA_MT,rural100$NOTA_MT, alternative = 'greater') # aceita Ho
 
 # NOTA LP E DEPENDENCIA ADMINISTRATIVA
 # amostra de n = 30
@@ -113,7 +113,7 @@ a30 %>%
   ggplot(aes(x = factor(""), y = NOTA_LP)) +
   geom_boxplot(fill = c('#008080'), width = 0.5) +
   stat_summary(fun.y = 'mean', geom = 'point', shape = 23, size = 3,  fill = 'white') + 
-  labs(x = '', y ='Nota LÌngua Portuguesa') + 
+  labs(x = '', y ='Nota L√≠ngua Portuguesa') + 
   theme_bw() +
   theme(axis.title.y = element_text(colour = 'black', size = 12),
         axis.title.x = element_text(colour = 'black', size = 12),
@@ -124,12 +124,12 @@ a30 %>%
 
 ggsave("port30.png", width = 160, height = 80, units = "mm")
 
-# medidas de posiÁ„o e variabilidade segundo as categorias da localizaÁ„o
+# medidas de posi√ß√£o e variabilidade segundo as categorias da localiza√ß√£o
 a30 %>%
   group_by(DEPENDENCIA_ADM)%>%
   summarize(media = mean(NOTA_LP),
-            vari‚ncia = var(NOTA_LP),
-            desvio_padr„o = sd(NOTA_LP),
+            vari√¢ncia = var(NOTA_LP),
+            desvio_padr√£o = sd(NOTA_LP),
             min = min(NOTA_LP),
             q25 = quantile(NOTA_LP, probs = .25),
             mediana  = quantile(NOTA_LP, probs = .5),
@@ -162,7 +162,7 @@ a100  %>%
   ggplot(aes(x = factor(""), y = NOTA_LP)) +
   geom_boxplot(fill = c('#008080'), width = 0.5) +
   stat_summary(fun.y = 'mean', geom = 'point', shape = 23, size = 3,  fill = 'white') + 
-  labs(x = '', y ='Nota LÌngua Portuguesa') + 
+  labs(x = '', y ='Nota L√≠ngua Portuguesa') + 
   theme_bw() +
   theme(axis.title.y = element_text(colour = 'black', size = 12),
         axis.title.x = element_text(colour = 'black', size = 12),
@@ -173,12 +173,12 @@ a100  %>%
 
 ggsave("port100.png", width = 160, height = 80, units = "mm")
 
-# medidas de posiÁ„o e variabilidade segundo as categorias da localizaÁ„o
+# medidas de posi√ß√£o e variabilidade segundo as categorias da localiza√ß√£o
 a100 %>%
   group_by(DEPENDENCIA_ADM)%>%
   summarize(media = mean(NOTA_LP),
-            vari‚ncia = var(NOTA_LP),
-            desvio_padr„o = sd(NOTA_LP),
+            vari√¢ncia = var(NOTA_LP),
+            desvio_padr√£o = sd(NOTA_LP),
             min = min(NOTA_LP),
             q25 = quantile(NOTA_LP, probs = .25),
             mediana  = quantile(NOTA_LP, probs = .5),
@@ -240,8 +240,8 @@ t.test(a30$NOTA_LP,a30$NOTA_MT) # aceita Ho
 banco_notas %>%
   group_by(Materia)%>%
   summarize(media = mean(Nota),
-            vari‚ncia = var(Nota),
-            desvio_padr„o = sd(Nota),
+            vari√¢ncia = var(Nota),
+            desvio_padr√£o = sd(Nota),
             min = min(Nota),
             q25 = quantile(Nota, probs = .25),
             mediana  = quantile(Nota, probs = .5),
